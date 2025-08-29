@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (playerRb.velocity.magnitude > moveThreshold)
+        if (playerRb.linearVelocity.magnitude > moveThreshold)
         {
             Follow();
         }
