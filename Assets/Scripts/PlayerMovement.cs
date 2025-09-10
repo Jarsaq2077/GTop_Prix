@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float motorForce = 100f;
+    public float motorForce = 500f;
     public float brakeForce = 1000f;
-    public float maxSteerAngle = 30f;
+    public float maxSteerAngle = 15f;
 
     public WheelCollider frontLeftWheelCollider;
     public WheelCollider frontRightWheelCollider;
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = new Vector3(0, -0.2f, 0);
+        rb.centerOfMass = new Vector3(0, -1.0f, 0);
     }
 
     private void Update()
@@ -48,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
     {
         frontLeftWheelCollider.motorTorque = -verticalInput * motorForce;
         frontRightWheelCollider.motorTorque = -verticalInput * motorForce;
+        backLeftWheelCollider.motorTorque = -verticalInput * motorForce;
+        backRightWheelCollider.motorTorque = -verticalInput * motorForce;
 
         currentBrakeForce =isBraking ? brakeForce : 0f;
         ApplyBrake();
