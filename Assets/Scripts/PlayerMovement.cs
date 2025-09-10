@@ -85,4 +85,8 @@ public class PlayerMovement : MonoBehaviour
         updateOneWheel(backLeftWheelCollider, backLeftWheelTransform);
         updateOneWheel(backRightWheelCollider, backRightWheelTransform);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }

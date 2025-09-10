@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class CameraController : MonoBehaviour
 {
@@ -11,9 +12,16 @@ public class CameraController : MonoBehaviour
     public float minDistance;
     public float moveThreshold = 0.1f;
     private Rigidbody playerRb;
+
+    public AudioSource bgm;
+    public float volumen = 0.8f;
     void Start()
     {
         playerRb = Player.GetComponent<Rigidbody>();
+        bgm.loop = true;
+        bgm.volume = volumen;
+        bgm.Play();       
+
     }
 
     void Update()
@@ -39,4 +47,5 @@ public class CameraController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, desiredPos, Time.deltaTime*smoothSpeed);
         gameObject.transform.LookAt(Player.transform.position + Vector3.up*0.5f);
     }
+    
 }

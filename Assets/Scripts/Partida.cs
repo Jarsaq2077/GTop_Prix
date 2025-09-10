@@ -7,7 +7,11 @@ public class Partida : MonoBehaviour
     public GameManager gameHandler;
 
     private void OnTriggerEnter(Collider other)
-    {
-        gameHandler.StartTimer();
+    {        
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("The player character has touched the line.");
+            gameHandler.StartTimer();
+        }
     }
 }

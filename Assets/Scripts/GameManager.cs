@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        if (PlayerPrefs.HasKey("record"))
+        /*if (PlayerPrefs.HasKey("record"))
         {
             record = PlayerPrefs.GetFloat("record");
         }
@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
         {
             record = 0f;
         }
+        DisplayRecord(record);*/
+        record = 0f;
         DisplayRecord(record);
     }
 
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void StartTimer()
     {
+        timer = 0f;
         timerRunning = true;
     }
 
