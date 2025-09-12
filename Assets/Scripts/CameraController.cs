@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     private Rigidbody playerRb;
 
     public AudioSource bgm;
-    public float volumen = 0.8f;
+    public float volumen;
     void Start()
     {
         playerRb = Player.GetComponent<Rigidbody>();

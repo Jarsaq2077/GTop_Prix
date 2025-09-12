@@ -187,9 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69973278c2abbb4d805fded43b6ec98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorForce: 1500
-  brakeForce: 1200
-  maxSteerAngle: 30
+  motorForce: 500
+  brakeForce: 1000
+  maxSteerAngle: 15
   frontLeftWheelCollider: {fileID: 1174284332}
   frontRightWheelCollider: {fileID: 1686068496}
   backLeftWheelCollider: {fileID: 660498221}
@@ -2458,31 +2458,31 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c6d7b359f9aeb0e42a52cbe7923dac07, type: 2}
     - target: {fileID: 6670001079435831892, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.004772096
+      value: 0.004917476
       objectReference: {fileID: 0}
     - target: {fileID: 6670001079435831892, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0012044387
+      value: -0.00015727997
       objectReference: {fileID: 0}
     - target: {fileID: 6670001079435831892, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00019314236
+      value: -0.000104875566
       objectReference: {fileID: 0}
     - target: {fileID: 6670001079435831892, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9919293
+      value: -0.9992309
       objectReference: {fileID: 0}
     - target: {fileID: 6670001079435831892, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.03194401
+      value: 0.03376993
       objectReference: {fileID: 0}
     - target: {fileID: 6670001079435831892, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.01541444
+      value: -0.01084511
       objectReference: {fileID: 0}
     - target: {fileID: 6670001079435831892, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.12173024
+      value: 0.016721938
       objectReference: {fileID: 0}
     - target: {fileID: 6670001079435831892, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2494,7 +2494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6670001079435831892, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -346.051
+      value: -361.961
       objectReference: {fileID: 0}
     - target: {fileID: 7281800396253459843, guid: d49c9622a37afb346ae5983873de9a67, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

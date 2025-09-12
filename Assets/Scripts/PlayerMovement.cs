@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float motorForce = 500f;
-    public float brakeForce = 1000f;
-    public float maxSteerAngle = 15f;
+    public float motorForce;
+    public float brakeForce;
+    public float maxSteerAngle;
 
     public WheelCollider frontLeftWheelCollider;
     public WheelCollider frontRightWheelCollider;
