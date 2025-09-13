@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,10 +24,19 @@ public class PlayerMovement : MonoBehaviour
     private bool isBraking;
     private Rigidbody rb;
 
+    public AudioSource engine;
+    public AudioSource drift;
+    public AudioMixer carMixer;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0, -1.0f, 0);
+        if (engine != null)
+        {
+            engine.loop = true;
+            engine.Play();
+        }
     }
 
     private void Update()
@@ -35,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         HandleMotor();
         HadleSteering();
         UpdateWheels();
+        HandleSounds();
     }
 
     private void GetInput()
@@ -59,8 +70,9 @@ public class PlayerMovement : MonoBehaviour
     {
         frontRightWheelCollider.brakeTorque = currentBrakeForce;
         frontLeftWheelCollider.brakeTorque = currentBrakeForce; 
-        backLeftWheelCollider.brakeTorque = currentBrakeForce;
-        backRightWheelCollider.brakeTorque = currentBrakeForce; 
+        
+        //backLeftWheelCollider.brakeTorque = currentBrakeForce;
+        //backRightWheelCollider.brakeTorque = currentBrakeForce; 
     }
 
     private void HadleSteering()
@@ -88,5 +100,23 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
+    }
+     private void HandleSounds()
+    {
+        float speed = rb.linearVelocity.magnitude;
+        float dB = Mathf.Lerp(0f, 7f, speed / 50f);
+        carMixer.SetFloat("MasterEngine", dB);
+
+        if (drift != null)
+        {
+            if (isBraking && !drift.isPlaying)
+            {
+                drift.Play();
+            }
+            else if (!isBraking && drift.isPlaying)
+            {
+                drift.Stop();
+            }
+        }
     }
 }
