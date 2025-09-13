@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -46,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
         HadleSteering();
         UpdateWheels();
         HandleSounds();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void GetInput()
@@ -104,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
      private void HandleSounds()
     {
         float speed = rb.linearVelocity.magnitude;
-        float dB = Mathf.Lerp(0f, 7f, speed / 50f);
+        float dB = Mathf.Lerp(0f, 3f, speed / 50f);
         carMixer.SetFloat("MasterEngine", dB);
 
         if (drift != null)
