@@ -15,7 +15,10 @@ public class MenuManager : MonoBehaviour
     public void QuitGame(){
         Application.Quit();
     }
-    public void PlayGame(){
+    public void PlayGame1(){
         SceneManager.LoadScene("Nivel1");
+    }
+    public void PlayGame2(){
+        SceneManager.LoadScene("Nivel2");
     }
 }

@@ -36,11 +36,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = new Vector3(0, -1.0f, 0);
-        if (engine != null)
-        {
-            engine.loop = true;
-            engine.Play();
-        }
+        
+        Debug.Log("Start");
     }
 
     private void Update()
@@ -53,6 +50,15 @@ public class PlayerMovement : MonoBehaviour
         UpdateWheels();
         HandleSounds();
 
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (engine != null)
+            {
+                engine.loop = true;
+                engine.Play();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(0);
@@ -62,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetInput()
     {
-
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         isBraking = Input.GetKey(KeyCode.Space);
