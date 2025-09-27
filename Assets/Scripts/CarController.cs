@@ -9,6 +9,9 @@ public class CarController : MonoBehaviour
     private Rigidbody rb;
     private InputManager input;
 
+    [HideInInspector] public bool canMove = false;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,13 +20,17 @@ public class CarController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Avanzar
-        Vector3 forwardMove = transform.forward * input.vertical * speed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.position + forwardMove);
+        if (canMove)
+        {
+            // Avanzar
+            Vector3 forwardMove = transform.forward * input.vertical * speed * Time.fixedDeltaTime;
 
-        // Girar
-        float turn = input.horizontal * turnSpeed * Time.fixedDeltaTime;
-        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-        rb.MoveRotation(rb.rotation * turnRotation);
+            rb.MovePosition(rb.position + forwardMove);
+
+            // Girar
+            float turn = input.horizontal * turnSpeed * Time.fixedDeltaTime;
+            Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+            rb.MoveRotation(rb.rotation * turnRotation);
+        }
     }
 }

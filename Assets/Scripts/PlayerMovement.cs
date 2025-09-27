@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource drift;
     public AudioMixer carMixer;
 
+    public bool canMove = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -42,19 +45,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!canMove) return; // ?? si no puede moverse, no hace nada
+
         GetInput();
         HandleMotor();
         HadleSteering();
         UpdateWheels();
         HandleSounds();
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(0);
         }
     }
 
+
     private void GetInput()
     {
+
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         isBraking = Input.GetKey(KeyCode.Space);
