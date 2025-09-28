@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class choque : MonoBehaviour
 {
@@ -29,6 +30,14 @@ public class choque : MonoBehaviour
 
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
