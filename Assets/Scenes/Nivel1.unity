@@ -2317,8 +2317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb56341076bbdaf4b9e61a09f39f266a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  turnSpeed: 50
+  speed: 15
+  turnSpeed: 45
   canMove: 0
 --- !u!1 &877870115 stripped
 GameObject:
