@@ -3,11 +3,19 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject mainmenu; 
+    public GameObject mainmenu;
+    public AudioSource bgm;
+    public float volumen;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        
+        bgm.loop = true;
+        bgm.volume = volumen;
+        bgm.Play();       
+
     }
     public void OpenMainMenu(){
         mainmenu.SetActive(true);
