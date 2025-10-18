@@ -6,6 +6,10 @@ public class PauseManager : MonoBehaviour
     public GameObject textoPausa;
     private bool juegoPausado = false;
 
+    void Start(){
+        textoPausa.SetActive(false);
+
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
