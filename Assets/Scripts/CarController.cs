@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 12f;
     public float turnSpeed = 50f;
 
     private Rigidbody rb;

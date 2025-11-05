@@ -1,22 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CountdownManager : MonoBehaviour
 {
-    public Text countdownText; // UI Text donde aparece "3, 2, 1, GO"
-    public PlayerMovement playerCar;
-    public CarController npcCar;
+    public Text countdownText; 
 
+    public PlayerMovement playerCar;
+    public List<CarController> npcCars = new List<CarController>(); 
 
     void Start()
     {
-        // Al iniciar, bloquear movimiento
-        playerCar.canMove = false;
-        npcCar.canMove = false;
+        // al iniciar bloquear movimiento del jugador
+        if (playerCar != null)
+            playerCar.canMove = false;
 
+        // bloquear movimiento de todos los bots
+        foreach (var bot in npcCars)
+        {
+            if (bot != null)
+                bot.canMove = false;
+        }
 
-        // Iniciar la corrutina del conteo
         StartCoroutine(CountdownStart());
     }
 
@@ -34,12 +40,17 @@ public class CountdownManager : MonoBehaviour
         countdownText.text = "GO!";
         yield return new WaitForSeconds(1f);
 
-        countdownText.gameObject.SetActive(false); // ocultar texto
+        countdownText.gameObject.SetActive(false);
 
+        
+        if (playerCar != null)
+            playerCar.canMove = true;
 
-
-        playerCar.canMove = true;
-        npcCar.canMove = true;
-
+      
+        foreach (var bot in npcCars)
+        {
+            if (bot != null)
+                bot.canMove = true;
+        }
     }
 }

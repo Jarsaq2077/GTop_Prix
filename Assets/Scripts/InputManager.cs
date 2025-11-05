@@ -25,12 +25,12 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         waypoints = GameObject.FindGameObjectWithTag("path").GetComponent<trackWaypoint>();
-        nodes = waypoints.nodes;
     }
 
     private void Start()
     {
-        calculateDistanceOfWaypoints(); // waypoint inicial
+        nodes = waypoints.nodes;  // <<< CARGA LOS NODES AQUÍ
+        calculateDistanceOfWaypoints();
     }
 
     private void FixedUpdate()
