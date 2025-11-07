@@ -42,7 +42,7 @@ public class Finish : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene(4);
                 }
                 
             }

@@ -17,11 +17,27 @@ public class MenuManager : MonoBehaviour
         bgm.Play();       
 
     }
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            PlayGame1();
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            PlayGame2();
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            PlayGame3();
+    }
+    
     public void OpenMainMenu(){
         mainmenu.SetActive(true);
     }
     public void QuitGame(){
         Application.Quit();
+    }
+    public void BackMenu(){
+        SceneManager.LoadScene(0);
     }
     public void PlayGame1(){
         SceneManager.LoadScene(1);
