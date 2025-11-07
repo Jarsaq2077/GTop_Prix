@@ -8,7 +8,23 @@ public class Finish : MonoBehaviour
     public GameManager gameHandler;
     public AudioSource nextLap;
     private int count = 0;
+    private int laps = 0;
+    private int currentIndex = 0;
 
+    private void Start()
+    {
+        currentIndex = SceneManager.GetActiveScene().buildIndex;
+        if(currentIndex == 1)
+        {
+            laps = 2;
+        }else if (currentIndex == 2)
+        {
+            laps = 1;
+        }else if(currentIndex == 3)
+        {
+            laps = 3;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {        
         if (other.CompareTag("Player"))
@@ -17,13 +33,18 @@ public class Finish : MonoBehaviour
             gameHandler.StopTimer();
             nextLap.volume = 0.5f;
             nextLap.Play();
-            if (count >= 2)
-            {
-                SceneManager.LoadScene("Nivel 2");
-            }
-            else
-            {
-                count++;
+            count++;
+            if (count >= laps)
+            {                
+                if(currentIndex < 3)
+                {
+                    SceneManager.LoadScene(currentIndex + 1);
+                }
+                else
+                {
+                    SceneManager.LoadScene("Menu");
+                }
+                
             }
         }
     }
