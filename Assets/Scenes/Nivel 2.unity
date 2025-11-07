@@ -156,7 +156,7 @@ TerrainCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: d216ab1bb2f42e44bb0c77a040f8eb11, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &3289476
 Terrain:
   m_ObjectHideFlags: 0
@@ -1330,7 +1330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &754176475
 Light:
   m_ObjectHideFlags: 0
@@ -1451,7 +1451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &838946794
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -7295,6 +7295,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 665227225139901291, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2398100868018174684, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: m_Volume
       value: 1
@@ -7307,12 +7311,32 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2446704489883381534, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432747708842492109, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5194610811602902562, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5194610811602902562, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194610811602902562, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: brakeForce
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194610811602902562, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: motorForce
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 6175026320800973507, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6276675738784025913, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
@@ -7355,11 +7379,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6773757387108641999, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7007709376494321450, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: m_Name
       value: bmw
       objectReference: {fileID: 0}
     - target: {fileID: 7007709376494321450, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7574784915523667303, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7673296007119878784, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7386,6 +7422,10 @@ PrefabInstance:
     - target: {fileID: 7972467664428956001, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: m_Center.z
       value: 0.084495075
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591949356310023179, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

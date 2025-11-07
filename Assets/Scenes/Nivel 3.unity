@@ -1462,6 +1462,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7929907978981981226, guid: 27a32eaf07c90294092155e98eabf2a8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2807784946054007751, guid: 27a32eaf07c90294092155e98eabf2a8, type: 3}
@@ -2609,6 +2613,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2446704489883381534, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2553161939282217028, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -2672,6 +2680,10 @@ PrefabInstance:
     - target: {fileID: 5194610811602902562, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: canMove
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194610811602902562, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: motorForce
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 5329909535849293353, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: m_Layer
@@ -2820,6 +2832,10 @@ PrefabInstance:
     - target: {fileID: 7903071198312292424, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972467664428956001, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7974579791233354278, guid: bdd797d5ac97e5448af59cfe992ed2ed, type: 3}
       propertyPath: m_Layer
