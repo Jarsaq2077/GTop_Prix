@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Finish : MonoBehaviour
 {
+    public Text LapText;
     public GameManager gameHandler;
     public AudioSource nextLap;
     private int count = 0;
     private int laps = 0;
     private int currentIndex = 0;
+    
 
     private void Start()
     {
@@ -34,6 +37,7 @@ public class Finish : MonoBehaviour
             nextLap.volume = 0.5f;
             nextLap.Play();
             count++;
+            LapText.text = (count + 1).ToString() + " / " + laps.ToString();
             if (count >= laps)
             {                
                 if(currentIndex < 3)

@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Text timerText, recordText;
+    public Text timerText, recordText, placeText;
     private float timer = 0f, record;
     private bool timerRunning = false;
+    public Transform waypointsList;
+    public Transform[] waypoints;
+    public Transform[] racers;
+    private int totalCars;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,13 @@ public class GameManager : MonoBehaviour
         DisplayRecord(record);*/
         record = 0f;
         DisplayRecord(record);
+        waypoints = new Transform[waypointsList.childCount];
+
+        for (int i = 0; i < waypointsList.childCount; i++)
+        {
+            waypoints[i] = waypointsList.GetChild(i);
+        }
+        totalCars = racers.Length;
     }
 
     // Update is called once per frame
@@ -36,6 +48,19 @@ public class GameManager : MonoBehaviour
         else
         {
             DisplayTime(timer);
+        }
+        var ranking = racers.OrderByDescending(c => nextCheckpoint(c)).ToList();
+        int place;
+        
+
+        for (int i = 0; i < ranking.Count; i++)
+        {
+            if (ranking[i].name == "bmw")
+            {
+                place = i + 1;
+                placeText.text = place.ToString() + " / " + totalCars.ToString();
+            }
+            Debug.Log((i + 1) + "° lugar: " + ranking[i].name);
         }
     }
     void DisplayTime(float timeToDisplay)
@@ -73,4 +98,23 @@ public class GameManager : MonoBehaviour
 
         recordText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milisecs);
     }
+
+    float nextCheckpoint(Transform racers)
+    {
+        int closest = 0;
+        float closestDist = Mathf.Infinity;
+
+        for (int i = 0; i < waypoints.Length; i++)
+        {
+            float dist = Vector3.Distance(racers.position, waypoints[i].position);
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closest = i;
+            }
+            
+        }
+        return closest * 1000f - closestDist;
+    }
+
 }
