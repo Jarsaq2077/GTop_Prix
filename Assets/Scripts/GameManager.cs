@@ -9,9 +9,8 @@ public class GameManager : MonoBehaviour
     public Text timerText, recordText, placeText;
     private float timer = 0f, record;
     private bool timerRunning = false;
-    public Transform waypointsList;
-    public Transform[] waypoints;
-    public Transform[] racers;
+    
+    public ProgresoAuto[] racers;
     private int totalCars;
     // Start is called before the first frame update
     void Start()
@@ -28,13 +27,8 @@ public class GameManager : MonoBehaviour
         DisplayRecord(record);*/
         record = 0f;
         DisplayRecord(record);
-        waypoints = new Transform[waypointsList.childCount];
-
-        for (int i = 0; i < waypointsList.childCount; i++)
-        {
-            waypoints[i] = waypointsList.GetChild(i);
-        }
         totalCars = racers.Length;
+
     }
 
     // Update is called once per frame
@@ -49,11 +43,14 @@ public class GameManager : MonoBehaviour
         {
             DisplayTime(timer);
         }
-        var ranking = racers.OrderByDescending(c => nextCheckpoint(c)).ToList();
+        var ranking = racers
+            .OrderByDescending(c => c.totalProgress)
+            .ThenByDescending(c => c.progressToNext)
+            .ToArray();
         int place;
         
 
-        for (int i = 0; i < ranking.Count; i++)
+        for (int i = 0; i < ranking.Length; i++)
         {
             if (ranking[i].name == "bmw")
             {
@@ -99,22 +96,5 @@ public class GameManager : MonoBehaviour
         recordText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milisecs);
     }
 
-    float nextCheckpoint(Transform racers)
-    {
-        int closest = 0;
-        float closestDist = Mathf.Infinity;
-
-        for (int i = 0; i < waypoints.Length; i++)
-        {
-            float dist = Vector3.Distance(racers.position, waypoints[i].position);
-            if (dist < closestDist)
-            {
-                closestDist = dist;
-                closest = i;
-            }
-            
-        }
-        return closest * 1000f - closestDist;
-    }
-
+    
 }
