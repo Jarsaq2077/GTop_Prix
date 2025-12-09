@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class choque : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class choque : MonoBehaviour
     [Header("Sonido de choque")]
     public AudioSource audioSource;
     public AudioClip crashClip;
+
+    public CanvasGroup gameOverCanvas;
+    public float fadeDuration = 1f;
+    public float showDuration = 5f;
+
 
     private void Start()
     {
@@ -74,6 +80,7 @@ public class choque : MonoBehaviour
     void Die()
     {
         Debug.Log("GAME OVER - el coche quedó destruido");
+        StartCoroutine(ShowGameOver());
 
         if (movementScript != null)
         {
@@ -100,4 +107,46 @@ public class choque : MonoBehaviour
             mainCamera.transform.LookAt(transform.position + Vector3.up * 1.5f);
         }
     }
+    IEnumerator ShowGameOver()
+    {
+        if (gameOverCanvas == null)
+            yield break;
+
+        // 1. Fade IN
+        float t = 0;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            gameOverCanvas.alpha = t / fadeDuration;
+            yield return null;
+        }
+
+        gameOverCanvas.alpha = 1;
+
+        // 2. Esperar en pantalla
+        float waitTime = 0;
+        while (waitTime < showDuration)
+        {
+            // si presiona R antes, salir al menú
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(0);
+            }
+
+            waitTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 3. Fade OUT
+        t = 0;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            gameOverCanvas.alpha = 1 - (t / fadeDuration);
+            yield return null;
+        }
+        SceneManager.LoadScene(0);
+        gameOverCanvas.alpha = 0;
+    }
+
 }
